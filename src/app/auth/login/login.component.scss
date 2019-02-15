@@ -1,0 +1,7 @@
+@mixin flexStretch() {
+    justify-content: stretch;
+}
+
+.login {
+    @include flexStretch();
+}
