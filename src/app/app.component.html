@@ -1,34 +1,52 @@
 <clr-main-container>
-  <clr-header>
-      <nav class="sidenav" [clr-nav-level]="2">
-        </nav>
-      <div class="branding">
-        <a class="logo-and-title" routerlink="/" href="/">
-          <span class="clr-icon clarity-logo"></span>
+  <clr-header class="header-6">
+    <div class="branding">
+      <a href="#" class="nav-link">
+          <clr-icon shape="vm-bug"></clr-icon>
           <span class="title">Project Clarity</span>
-        </a>
-      </div>
-      <div class="header-nav" [clr-nav-level]="1">
-          <a class="nav-link" id="home-link" routerlink="/" routerlinkactive="active" href="/">
-            <span class="nav-text">
-              Home
-            </span>
-          </a>
-          <a class="nav-link active" routerlink="/documentation" routerlinkactive="active" href="/documentation">
-            <span class="nav-text">
-              Documentation
-            </span>
-            <a class="nav-link" routerlink="/icons" routerlinkactive="active" href="/icons">
-              <span class="nav-text">
-                Icons
-              </span>
-            </a>
-          </a>
-      </div>
+      </a>
+    </div>
+    <div class="header-nav" [clr-nav-level]="1">
+      <a href="#" class="nav-link"><span class="nav-text">Activites</span></a>
+      <a href="#" class="nav-link"><span class="nav-text">Log</span></a>
+      <a href="#" class="nav-link"><span class="nav-text">Goals</span></a>
+      <a href="#" class="nav-link"><span class="nav-text">Trends</span></a>
+    </div>
+    <div class="header-actions">
+      <clr-dropdown>
+          <button class="nav-icon" clrDropdownTrigger>
+              <clr-icon shape="user"></clr-icon>
+              <clr-icon shape="caret down"></clr-icon>
+          </button>
+          <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+              <a href="#" clrDropdownItem>Account</a>
+              <a href="#" clrDropdownItem>Log In</a>
+              <a href="#" clrDropdownItem>Log out</a>
+          </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
   </clr-header>
+  <nav class="subnav">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Activites</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Log</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Goals</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Trends</a>
+        </li>
+    </ul>
+  </nav>
   <div class="content-container">
       <main class="content-area">
+        
       </main>
+      
       
   </div>
 </clr-main-container>
