@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './pages/home/home-content-page.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
+import { ActivitiesComponent } from './activities/activities/activities.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    ActivitiesComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,9 @@ import { NavigationComponent } from './shared/components/navigation/navigation.c
     BrowserAnimationsModule,
     ClarityModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

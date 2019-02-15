@@ -18,16 +18,16 @@
               <clr-icon shape="caret down"></clr-icon>
           </button>
           <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-              <a href="#" clrDropdownItem>Account</a>
-              <a href="#" clrDropdownItem>Log In</a>
-              <a href="#" clrDropdownItem>Log out</a>
+              <a name="activitesLink" clrDropdownItem (click)="setActiveRoute('activities')" routerLink="/activities">Account</a>
+              <a href="#" clrDropdownItem (click)="setActiveRoute('login')" routerLink="/login ">LogIn</a>
+              <a href="#" clrDropdownItem (click)="setActiveRoute('logout')" routerLink="/logout ">Log out</a>
           </clr-dropdown-menu>
       </clr-dropdown>
     </div>
-  </clr-header> -->
+  </clr-header>
   <nav class="subnav">
     <ul class="nav">
-        <li class="nav-item">
+        <li class="nav-item" (click)="setActiveRoute('activities')" routerLink="/activities">
             <a class="nav-link active" href="#">Activites</a>
         </li>
         <li class="nav-item">
