@@ -33,8 +33,9 @@ export class AuthService {
     const mockUser: UserData  = {
         userId: '1',
         email: 'test@test.com'
-    }
+    };
     this.loggedInUserChanged.next(mockUser);
+    this.router.navigate(['activities']);
   }
 
   logout(): void {
