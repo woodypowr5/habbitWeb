@@ -1,0 +1,10 @@
+<app-activity-instance 
+  class="activity-instance" 
+  *ngFor="let activity of activities"
+  [name]="activity.name"
+  [description]="activity.description"
+>
+
+  {{activity | json}}
+  hello
+</app-activity-instance>

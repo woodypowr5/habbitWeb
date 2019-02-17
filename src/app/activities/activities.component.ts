@@ -1,5 +1,5 @@
-import { Activity } from './../../shared/types/activity.model';
 import { Component, OnInit } from '@angular/core';
+import { Activity } from '../shared/types/activity.model';
 
 @Component({
   selector: 'app-activities',
@@ -26,5 +26,4 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

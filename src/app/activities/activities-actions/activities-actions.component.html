@@ -1,0 +1,22 @@
+<div class="activites-actions">
+  <div *ngIf="currentAction === 'add'" class="btn-group btn-primary">
+    <button class="btn" (click)="executeAction(null)">
+        <clr-icon shape="home"></clr-icon>
+        Add a New Activity
+    </button>
+  </div>  
+  <div *ngIf="currentAction === 'choose'" class="btn-group btn-primary">
+    <button class="btn" (click)="executeAction('favorites')">
+        <clr-icon shape="home"></clr-icon>
+        Choose from Favorites
+    </button>
+    <button class="btn">
+        <clr-icon shape="cog" (click)="executeAction('custom')"></clr-icon>
+        Create Custom Activity
+    </button>
+    <button class="btn btn-primary submit">
+        <clr-icon shape="cog" (click)="executeAction('cancel')"></clr-icon>
+        Create Custom Activity
+    </button>
+  </div>  
+</div>

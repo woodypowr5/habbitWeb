@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './pages/home/home-content-page.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
-import { ActivitiesComponent } from './activities/activities/activities.component';
+import { ActivitiesComponent } from './activities/activities.component';
 import { AuthService } from './auth/auth.service';
 import { CollapsibleModule } from 'angular2-collapsible';
+import { ActivityListComponent } from './activities/activity-list/activity-list.component';
+import { ActivitiesActionsComponent } from './activities/activities-actions/activities-actions.component';
+import { ActivityInstanceComponent } from './activities/activity-list/activity-instance/activity-instance.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { CollapsibleModule } from 'angular2-collapsible';
     LoginComponent,
     HomeComponent,
     NavigationComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    ActivityListComponent,
+    ActivitiesActionsComponent,
+    ActivityInstanceComponent
   ],
   imports: [
     BrowserModule,
