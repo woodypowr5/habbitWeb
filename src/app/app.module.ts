@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home-content-page.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { ActivitiesComponent } from './activities/activities/activities.component';
 import { AuthService } from './auth/auth.service';
+import { CollapsibleModule } from 'angular2-collapsible';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthService } from './auth/auth.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ClarityModule
+    ClarityModule,
+    CollapsibleModule
   ],
   providers: [
     AuthService
