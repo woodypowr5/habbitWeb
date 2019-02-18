@@ -1,21 +1,28 @@
 
-  <div *ngIf="currentAction === 'add'" class="buttons-wrapper btn-group btn-primary">
-    <button class="btn button-instance" (click)="executeAction(null)">
-        <clr-icon shape="home"></clr-icon>
+  <div *ngIf="!choiceModalVisible" class="add-button-wrapper buttons-wrapper btn-group btn-primary">
+    <button class="btn button-instance" (click)="activateChoiceModal()">
+        <clr-icon shape="plus"></clr-icon>
         Add a New Activity
     </button>
   </div>  
-  <div *ngIf="currentAction === 'choose'" class="buttons-wrapper btn-group btn-primary">
-    <button class="button-instance btn" (click)="executeAction('favorites')">
-        <clr-icon shape="home"></clr-icon>
-        Choose from Favorites
-    </button>
-    <button class="button-instance btn">
-        <clr-icon shape="cog" (click)="executeAction('custom')"></clr-icon>
-        Create Custom Activity
-    </button>
-    <button class="button-instance btn btn-warning submit">
-        <clr-icon shape="cog" (click)="executeAction('cancel')"></clr-icon>
-        Cancel
-    </button>
-  </div>  
+
+  <clr-modal [(clrModalOpen)]="choiceModalVisible" [clrModalClosable]="false" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">How would you like to create your activity?</h3>
+    <div class="modal-body">
+        <div class="choice-buttons-wrapper buttons-wrapper btn-group btn-primary">
+            <button class="button-instance btn" (click)="executeAction('favorites')">
+                <clr-icon shape="star"></clr-icon>
+                Choose from Favorites
+            </button>
+            <button class="button-instance btn" (click)="executeAction('custom')">
+                <clr-icon shape="pencil"></clr-icon>
+                Create Custom Activity
+            </button>
+            <button class="button-instance btn btn-warning submit"  (click)="deactivateChoiceModal()">
+                <clr-icon shape="cancel"></clr-icon>
+                Cancel
+            </button>
+        </div>  
+    </div>
+  
+  </clr-modal>

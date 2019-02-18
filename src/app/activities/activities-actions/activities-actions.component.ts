@@ -6,22 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./activities-actions.component.scss']
 })
 export class ActivitiesActionsComponent implements OnInit {
-  private currentAction = 'add';
+  private choiceModalVisible = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  executeAction(argument: string): void {
-    if (argument === 'favorites') {
-      console.log('favs');
-    } else if (argument === 'custom') {
-      console.log('custom');
-    } else if (argument === 'cancel') {
-      this.currentAction = 'add';
-    } else {
-      this.currentAction === 'add' ? this.currentAction = 'choose' : this.currentAction = 'add';
-    }
+  activateChoiceModal() {
+    this.choiceModalVisible = true;
   }
+
+  deactivateChoiceModal() {
+    this.choiceModalVisible = false;
+  }
+
 }

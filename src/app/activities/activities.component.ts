@@ -20,6 +20,14 @@ export class ActivitiesComponent implements OnInit {
       name: 'Activity 3',
       description: 'Test'
     },
+    {
+      name: 'Activity 4',
+      description: 'Test'
+    },
+    {
+      name: 'Activity 5',
+      description: 'Test'
+    }
   ];
 
   constructor() { }

@@ -1,7 +1,42 @@
 @import '../../SASS/mixins/breakpoint/breakpoint.scss';
 @import '../../SASS/components/buttonContainer.scss';
+@import '../../SASS/_variables.scss';
 
 .buttons-wrapper{
     @extend .app-button-container;
     margin-right: 0px;
+    width: 100%;
+    bottom: 0px;
+    left: 0;
+    background-color: none;
 } 
+
+.buttons-wrapper .btn {
+    line-height: 2.0rem;
+    height: 2.0rem;
+    width: 240px !important;
+}
+
+.choice-buttons-wrapper .btn{
+    margin-bottom: 30px;
+    margin-bottom: 30px;margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.add-button-wrapper .btn{
+    margin-left: unset !important;
+    margin-right: unset !important;
+    width: 240px !important;
+    left: calc(50% - 120px) !important;
+    position: fixed;
+    bottom: 30px;
+    line-height: 2.0rem;
+    height: 2.0rem;
+}
+
+.modal-title{
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-right: 0px;
+}
