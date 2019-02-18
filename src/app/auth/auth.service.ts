@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   registerUser(): void {
- 
+
   }
 
   login(userData: UserData): void {

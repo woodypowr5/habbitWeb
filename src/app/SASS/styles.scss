@@ -1,2 +1,6 @@
-@import './variables';
-@import './mixins';
+
+@import '/mixins/breakpoint/breakpoint.scss';
+
+.btn{
+    max-width: unset;
+}

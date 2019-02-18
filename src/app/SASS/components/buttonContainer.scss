@@ -1,0 +1,22 @@
+.app-button-container {
+    @include breakpoint(small) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.app-button-container .button-instance{
+    margin-right: 10px;
+    @include breakpoint(small) {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    @include breakpoint(mobile) {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+}
+
+
+    

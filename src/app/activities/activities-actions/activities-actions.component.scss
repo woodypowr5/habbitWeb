@@ -1,0 +1,7 @@
+@import '../../SASS/mixins/breakpoint/breakpoint.scss';
+@import '../../SASS/components/buttonContainer.scss';
+
+.buttons-wrapper{
+    @extend .app-button-container;
+    margin-right: 0px;
+} 
