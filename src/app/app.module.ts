@@ -13,6 +13,16 @@ import { CollapsibleModule } from 'angular2-collapsible';
 import { ActivityListComponent } from './activities/activity-list/activity-list.component';
 import { ActivitiesActionsComponent } from './activities/activities-actions/activities-actions.component';
 import { ActivityInstanceComponent } from './activities/activity-list/activity-instance/activity-instance.component';
+import { LogComponent } from './log/log.component';
+import { DateSliderComponent } from './log/date-slider/date-slider.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+ 
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
@@ -23,17 +33,24 @@ import { ActivityInstanceComponent } from './activities/activity-list/activity-i
     ActivitiesComponent,
     ActivityListComponent,
     ActivitiesActionsComponent,
-    ActivityInstanceComponent
+    ActivityInstanceComponent,
+    LogComponent,
+    DateSliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ClarityModule,
-    CollapsibleModule
+    CollapsibleModule,
+    SwiperModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
   ],
   bootstrap: [AppComponent]
 })

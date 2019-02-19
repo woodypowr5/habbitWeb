@@ -1,12 +1,12 @@
 
-  <div *ngIf="!choiceModalVisible" class="add-button-wrapper buttons-wrapper btn-group btn-primary">
+<div *ngIf="!choiceModalVisible" class="add-button-wrapper buttons-wrapper btn-group btn-primary">
     <button class="btn button-instance" (click)="activateChoiceModal()">
         <clr-icon shape="plus"></clr-icon>
         Add a New Activity
     </button>
-  </div>  
+</div>  
 
-  <clr-modal [(clrModalOpen)]="choiceModalVisible" [clrModalClosable]="false" [clrModalStaticBackdrop]="true">
+<clr-modal [(clrModalOpen)]="choiceModalVisible" [clrModalClosable]="false" [clrModalStaticBackdrop]="true">
     <h3 class="modal-title">How would you like to create your activity?</h3>
     <div class="modal-body">
         <div class="choice-buttons-wrapper buttons-wrapper btn-group btn-primary">
@@ -24,5 +24,4 @@
             </button>
         </div>  
     </div>
-  
-  </clr-modal>
+</clr-modal>

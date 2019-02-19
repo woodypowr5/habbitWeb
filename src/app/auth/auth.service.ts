@@ -35,7 +35,7 @@ export class AuthService {
         email: 'test@test.com'
     };
     this.loggedInUserChanged.next(mockUser);
-    this.router.navigate(['activities']);
+    this.router.navigate(['log']);
   }
 
   logout(): void {

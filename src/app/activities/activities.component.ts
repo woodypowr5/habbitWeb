@@ -7,29 +7,8 @@ import { Activity } from '../shared/types/activity.model';
   styleUrls: ['./activities.component.scss']
 })
 export class ActivitiesComponent implements OnInit {
-  private activities: Activity[] = [
-    {
-    name: 'Activity 1',
-    description: 'Test'
-    },
-    {
-      name: 'Activity 2',
-      description: 'Test'
-    },
-    {
-      name: 'Activity 3',
-      description: 'Test'
-    },
-    {
-      name: 'Activity 4',
-      description: 'Test'
-    },
-    {
-      name: 'Activity 5',
-      description: 'Test'
-    }
-  ];
-
+  private activities: Activity[] = [];
+  
   constructor() { }
 
   ngOnInit() {

@@ -20,5 +20,4 @@ export class ActivitiesActionsComponent implements OnInit {
   deactivateChoiceModal() {
     this.choiceModalVisible = false;
   }
-
 }

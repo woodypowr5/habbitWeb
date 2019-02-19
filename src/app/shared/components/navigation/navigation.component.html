@@ -6,10 +6,11 @@
       </a>
     </div>
     <div class="header-nav" [clr-nav-level]="1">
-      <a href="#" class="nav-link"><span class="nav-text">Activites</span></a>
-      <a href="#" class="nav-link"><span class="nav-text">Log</span></a>
-      <a href="#" class="nav-link"><span class="nav-text">Goals</span></a>
-      <a href="#" class="nav-link"><span class="nav-text">Trends</span></a>
+      <a name="1" class="nav-link" [ngClass]="{'active': activeRoute === 'activities'}" (click)="setActiveRoute('activities')"><span class="nav-text">Activites</span></a>
+      <a name="2" class="nav-link" [ngClass]="{'active': activeRoute === 'log'}" (click)="setActiveRoute('log')"><span class="nav-text">Log</span></a>
+      <a name="3" class="nav-link" [ngClass]="{'active': activeRoute === 'goals'}" (click)="setActiveRoute('goals')"><span class="nav-text">Goals</span></a>
+      <a name="4" class="nav-link" [ngClass]="{'active': activeRoute === 'trends'}" (click)="setActiveRoute('trends')"><span class="nav-text">Trends</span></a>
+      <a name="4" class="nav-link" [ngClass]="{'active': activeRoute === 'insights'}" (click)="setActiveRoute('insights')"><span class="nav-text">Insights</span></a>
     </div>
     <div class="header-actions">
       <clr-dropdown>
@@ -18,26 +19,29 @@
               <clr-icon shape="caret down"></clr-icon>
           </button>
           <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-              <a name="activitesLink" clrDropdownItem (click)="setActiveRoute('activities')" routerLink="/activities">Account</a>
-              <a href="#" clrDropdownItem (click)="setActiveRoute('login')" routerLink="/login ">LogIn</a>
-              <a href="#" clrDropdownItem (click)="setActiveRoute('logout')" routerLink="/logout ">Log out</a>
+              <a name="activitesLink" clrDropdownItem  (click)="setActiveRoute('activities')">Account</a>
+              <a name="x" clrDropdownItem (click)="setActiveRoute('login')">Login</a>
+              <a name="y" clrDropdownItem (click)="setActiveRoute('logout')">Logout</a>
           </clr-dropdown-menu>
       </clr-dropdown>
     </div>
   </clr-header>
   <nav class="subnav">
     <ul class="nav">
-        <li class="nav-item" (click)="setActiveRoute('activities')" routerLink="/activities">
-            <a class="nav-link active" href="#">Activites</a>
+        <li class="nav-item">
+            <a class="nav-link active" name="t" [ngClass]="{'active': activeRoute === 'activities'}" (click)="setActiveRoute('activities')">Activites</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Log</a>
+            <a class="nav-link" name="q" [ngClass]="{'active': activeRoute === 'log'}" (click)="setActiveRoute('log')">Log</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Goals</a>
+            <a class="nav-link" name="r" [ngClass]="{'active': activeRoute === 'goals'}" (click)="setActiveRoute('goals')">Goals</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Trends</a>
+            <a class="nav-link" name="w" [ngClass]="{'active': activeRoute === 'trends'}" (click)="setActiveRoute('trends')">Trends</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" name="w" [ngClass]="{'active': activeRoute === 'insights'}" (click)="setActiveRoute('insights')">Insights</a>
         </li>
     </ul>
   </nav>
