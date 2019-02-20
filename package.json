@@ -25,7 +25,6 @@
     "@webcomponents/custom-elements": "^1.0.0",
     "angular2-collapsible": "^0.6.1",
     "core-js": "^2.5.4",
-    "ngx-swiper-wrapper": "^7.2.1",
     "rxjs": "~6.3.3",
     "swiper": "^3.4.2",
     "tslib": "^1.9.0",

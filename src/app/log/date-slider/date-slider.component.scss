@@ -1,4 +1,10 @@
-swiper{
-    height: 300px;
-    width: 100%;
+@import '../../SASS/components/swipeCalendar.scss';
+
+.swiper-container{
+    height: 150px;
+    // overflow: visible;
+}
+
+.date-wrapper{
+    @extend .app-swipe-calendar
 }

@@ -1,0 +1,35 @@
+@import '../../SASS/_variables.scss';
+$calendarDayWidth: 29%; 
+$gutterWidth: 2%;
+
+.app-swipe-calendar{
+    height: 150px;
+    margin-left: -$calendarDayWidth - $gutterWidth + 4.5;
+}
+.app-swipe-calendar .date-wrapper {
+    width: $calendarDayWidth;
+    position: absolute;
+    margin-right: (50% - (3 * 30)) / 3;
+    border: 1px solid $colors-borderSubdued;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    padding: 5px;
+    height: 150px;
+    display: inline-block;
+}
+.app-swipe-calendar .date-wrapper:nth-child(1) {
+    left: 0px;
+}
+.app-swipe-calendar .date-wrapper:nth-child(2) {
+    left: $calendarDayWidth + $gutterWidth;
+}
+.app-swipe-calendar .date-wrapper:nth-child(3) {
+    left: (2 *$calendarDayWidth) + (2 * $gutterWidth);
+}
+.app-swipe-calendar .date-wrapper:nth-child(4) {
+    left: (3 *$calendarDayWidth) + (3 * $gutterWidth);
+}
+.app-swipe-calendar .date-wrapper:nth-child(5) {
+    left: (4 *$calendarDayWidth) + (4 * $gutterWidth);
+}

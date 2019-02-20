@@ -15,14 +15,6 @@ import { ActivitiesActionsComponent } from './activities/activities-actions/acti
 import { ActivityInstanceComponent } from './activities/activity-list/activity-instance/activity-instance.component';
 import { LogComponent } from './log/log.component';
 import { DateSliderComponent } from './log/date-slider/date-slider.component';
-import { SwiperModule } from 'ngx-swiper-wrapper';
-import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
-import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
- 
-const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-  direction: 'horizontal',
-  slidesPerView: 'auto'
-};
 
 @NgModule({
   declarations: [
@@ -42,15 +34,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AppRoutingModule,
     BrowserAnimationsModule,
     ClarityModule,
-    CollapsibleModule,
-    SwiperModule
+    CollapsibleModule
   ],
   providers: [
-    AuthService,
-    {
-      provide: SWIPER_CONFIG,
-      useValue: DEFAULT_SWIPER_CONFIG
-    }
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

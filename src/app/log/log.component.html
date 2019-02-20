@@ -1,1 +1,4 @@
-<app-date-slider></app-date-slider>
+<app-date-slider
+    [activeRecords]="activeRecords"
+    (indexChanged)="updateActiveRecords($event)"
+></app-date-slider>
