@@ -1,10 +1,9 @@
 <div class="app-swipe-calendar">
-  <!-- <div [(index)]="index" (indexChange)="swiperEngaged(index)"> -->
     <div class="date-wrapper" *ngFor="let iteration of [-2,-1,0,1,2]" [@slideLeft]>
-      {{ activeRecords[index + iteration] }}
+      {{ activeRecords[iteration + 2] }}
     </div>
-  <!-- </div> -->
+    <button class="prev-day-button" (click)="previousDay()">Prev</button>
+    <button class="next-day-button" (click)="nextDay()">Next</button>
 </div>
-index: {{ index }}
 <br>
-activeRecords: {{ activeRecords | json}}
+

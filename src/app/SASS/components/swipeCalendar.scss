@@ -33,3 +33,13 @@ $gutterWidth: 2%;
 .app-swipe-calendar .date-wrapper:nth-child(5) {
     left: (4 *$calendarDayWidth) + (4 * $gutterWidth);
 }
+.prev-day-button, .next-day-button{
+    position: absolute;
+    bottom: 10px;
+}
+.prev-day-button{
+    left: 0px;
+}
+.next-day-button{
+    right: 0px;
+}

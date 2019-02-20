@@ -22,7 +22,7 @@ import { trigger, transition, animate, style } from '@angular/animations';
 export class DateSliderComponent implements OnInit {
   @Input() activeRecords: any[] = [];
   @Output() indexChanged: EventEmitter<number> = new EventEmitter();
-  private index = 4;
+  private index = 3;
 
   constructor() { 
     
@@ -32,7 +32,13 @@ export class DateSliderComponent implements OnInit {
     this.indexChanged.emit(this.index);
   }
 
-  swiperEngaged(index: number) {
-    this.indexChanged.emit(this.index);
+  previousDay() {
+      this.index--;
+      this.indexChanged.emit(this.index);
+  }
+
+  nextDay() {
+      this.index++;
+      this.indexChanged.emit(this.index);
   }
 }
