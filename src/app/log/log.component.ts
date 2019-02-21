@@ -23,7 +23,7 @@ export class LogComponent implements OnInit {
     (index >= 0 )? activeRecords.push(this.records[index]): activeRecords.push(null);
     (index + 1 < this.records.length )? activeRecords.push(this.records[index + 1]): activeRecords.push(null);
     (index + 2 < this.records.length )? activeRecords.push(this.records[index + 2]): activeRecords.push(null);
-    
+    console.log(this.activeRecords);
     this.activeRecords = activeRecords;
   }
 }

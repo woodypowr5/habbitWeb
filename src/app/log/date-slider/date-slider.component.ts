@@ -10,9 +10,10 @@ import { trigger, transition, animate, style, state } from '@angular/animations'
   animations: [
     trigger('slideLeft', [
       state('inProgress', style({
+        transform: 'translateX(100%)'
       })),
       state('complete', style({
-        transform: 'translateX(100%)'
+       
       })),
       transition('inProgress => complete', [
         animate(200)
@@ -20,9 +21,10 @@ import { trigger, transition, animate, style, state } from '@angular/animations'
     ]),
     trigger('slideRight', [
       state('inProgress', style({
+        transform: 'translateX(-100%)'
       })),
       state('complete', style({
-        transform: 'translateX(-100%)'
+        
       })),
       transition('inProgress => complete', [
         animate(200)
@@ -46,16 +48,15 @@ export class DateSliderComponent implements OnInit {
   }
 
   previousDay() {
-      this.slideLeftActive = 'inProgress';
+      this.slideRightActive = 'inProgress';
       this.index--;
       this.indexChanged.emit(this.index);
   }
 
   nextDay() {
-      this.slideRightActive = 'inProgress';
+      this.slideLeftActive = 'inProgress';
       this.index++;
       this.indexChanged.emit(this.index);
-      
   }
 
   slideDone(event) {
