@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Input, Output, EventEmitter } from '@angular/core';
 import { ViewChild, ElementRef} from '@angular/core';
 import { Record } from '../../shared/types/record.model';
-import { trigger, transition, animate, style } from '@angular/animations';
+import { trigger, transition, animate, style, state } from '@angular/animations';
 
 @Component({
   selector: 'app-date-slider',
@@ -9,12 +9,23 @@ import { trigger, transition, animate, style } from '@angular/animations';
   styleUrls: ['./date-slider.component.scss'],
   animations: [
     trigger('slideLeft', [
-      transition(':enter', [
-        style({transform: 'translateX(-100%)'}),
-        animate('200ms ease-in', style({transform: 'translateY(0%)'}))
-      ]),
-      transition(':leave', [
-        animate('200ms ease-in', style({transform: 'translateX(-100%)'}))
+      state('inProgress', style({
+      })),
+      state('complete', style({
+        transform: 'translateX(100%)'
+      })),
+      transition('inProgress => complete', [
+        animate(200)
+      ])
+    ]),
+    trigger('slideRight', [
+      state('inProgress', style({
+      })),
+      state('complete', style({
+        transform: 'translateX(-100%)'
+      })),
+      transition('inProgress => complete', [
+        animate(200)
       ])
     ])
   ]
@@ -23,6 +34,8 @@ export class DateSliderComponent implements OnInit {
   @Input() activeRecords: any[] = [];
   @Output() indexChanged: EventEmitter<number> = new EventEmitter();
   private index = 3;
+  private slideLeftActive = 'complete';
+  private slideRightActive = 'complete'; 
 
   constructor() { 
     
@@ -33,12 +46,20 @@ export class DateSliderComponent implements OnInit {
   }
 
   previousDay() {
+      this.slideLeftActive = 'inProgress';
       this.index--;
       this.indexChanged.emit(this.index);
   }
 
   nextDay() {
+      this.slideRightActive = 'inProgress';
       this.index++;
       this.indexChanged.emit(this.index);
+      
+  }
+
+  slideDone(event) {
+    this.slideLeftActive = 'complete';
+    this.slideRightActive = 'complete';
   }
 }
