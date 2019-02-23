@@ -1,16 +1,35 @@
 <div class="app-swipe-calendar">
     <div 
-      class="date-wrapper" 
+      class="date-wrapper card" 
       *ngFor="let iteration of [-2,-1,0,1,2]" 
       [@slideLeft]="slideLeftActive.toString()"  
       (@slideLeft.done)="slideDone($event)" 
       [@slideRight]="slideRightActive.toString()"  
       (@slideRight.done)="slideDone($event)"
     >
-      {{ activeRecords[iteration + 2] }}
+      <div class="card-header">
+        <!-- {{ activeRecords[iteration + 2].name }} -->
+      </div>  
+      <!-- {{ activeRecords[iteration + 2] }} -->
     </div>
     <button class="prev-day-button" (click)="previousDay()">Prev</button>
     <button class="next-day-button" (click)="nextDay()">Next</button>
 </div>
 <br>
-
+<!-- <div class="card">
+    <div class="card-header">
+        Header
+    </div>
+    <div class="card-block">
+        <div class="card-title">
+            Block
+        </div>
+        <div class="card-text">
+            ...
+        </div>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-sm btn-link">Footer Action 1</button>
+        <button class="btn btn-sm btn-link">Footer Action 2</button>
+    </div>
+</div> -->
