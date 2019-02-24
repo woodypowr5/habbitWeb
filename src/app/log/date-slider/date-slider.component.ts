@@ -2,34 +2,15 @@ import { Component, OnInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, 
 import { ViewChild, ElementRef} from '@angular/core';
 import { Record } from '../../shared/types/record.model';
 import { trigger, transition, animate, style, state } from '@angular/animations';
+import { dateSliderTriggers } from './date-slider.triggers';
 
 @Component({
   selector: 'app-date-slider',
   templateUrl: './date-slider.component.html',
   styleUrls: ['./date-slider.component.scss'],
   animations: [
-    trigger('slideLeft', [
-      state('inProgress', style({
-        transform: 'translateX(100%)'
-      })),
-      state('complete', style({
-       
-      })),
-      transition('inProgress => complete', [
-        animate(200)
-      ])
-    ]),
-    trigger('slideRight', [
-      state('inProgress', style({
-        transform: 'translateX(-100%)'
-      })),
-      state('complete', style({
-        
-      })),
-      transition('inProgress => complete', [
-        animate(200)
-      ])
-    ])
+    trigger('slideLeft', dateSliderTriggers.slideLeft),
+    trigger('slideRight', dateSliderTriggers.slideRight)
   ]
 })
 export class DateSliderComponent implements OnInit {
