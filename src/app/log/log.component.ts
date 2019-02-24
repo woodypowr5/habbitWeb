@@ -12,6 +12,7 @@ export class LogComponent implements OnInit {
   private activities: Activity[] = [];
   private activeRecords: number[];
   private centerIndex = 3;
+  private activeDate: Date = new Date();
 
   constructor(private activityService: ActivityService) { }
 
@@ -19,7 +20,8 @@ export class LogComponent implements OnInit {
     this.activityService.activitiesChanged.subscribe( activites => {
       this.activities = activites;
     });
-    this.updateActiveRecords(this.centerIndex);
+    
+    this.updateActiveDate(this.centerIndex);
   }
 
   updateActiveRecords(index: number): void {
@@ -31,5 +33,13 @@ export class LogComponent implements OnInit {
     // (index + 2 < this.records.length )? activeRecords.push(this.records[index + 2]): activeRecords.push(null);
     // console.log(this.activeRecords);
     this.activeRecords = activeRecords;
+  }
+
+  updateActiveDate(index: number): void {
+    const relativeDay = this.centerIndex - index;    
+    let newActiveDate = new Date();
+    newActiveDate.setDate(newActiveDate.getDate() - relativeDay);
+    this.activeDate = newActiveDate;
+    this.updateActiveRecords(index);
   }
 }
