@@ -1,8 +1,11 @@
-<div class="record-details card">
+<div 
+  class="record-details card" 
+  *ngIf="visible === true"
+  [@open]
+>
   <div class="card-header">
-    {{ records }}
-  </div>  
-  <!-- <div class="card-footer">
-      <button class="btn btn-sm btn-link">Create Record</button>
-  </div> -->
+    {{ activeDate.toLocaleDateString("en-US", dateFormatOptions) }}
+  </div>
+  
+  <button (click)="close()">X</button>
 </div>

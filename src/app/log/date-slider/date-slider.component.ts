@@ -16,6 +16,8 @@ import { dateSliderTriggers } from './date-slider.triggers';
 export class DateSliderComponent implements OnInit {
   @Input() activeRecords: any[] = [];
   @Input() activeDate: Date;
+  @Input() dateSelected: boolean;
+  @Output() dateSelectedInteraction: EventEmitter<number> = new EventEmitter();
   @Output() indexChanged: EventEmitter<number> = new EventEmitter();
   private index = 3;
   private slideLeftActive = 'complete';
@@ -52,5 +54,15 @@ export class DateSliderComponent implements OnInit {
     
     newDate.setDate(this.activeDate.getDate() + iteration);
     return monthNames[newDate.getMonth()] + ' ' + newDate.getDate();
+  }
+
+  dateClicked(iteration: number):void {
+    this.dateSelectedInteraction.emit(iteration);
+    if(iteration < 0){
+      this.previousDay();
+    }
+    else if (iteration > 0) {
+      this.nextDay();
+    }
   }
 }

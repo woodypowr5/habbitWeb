@@ -9,10 +9,13 @@ import { Activity } from '../shared/types/activity.model';
   styleUrls: ['./log.component.scss']
 })
 export class LogComponent implements OnInit {
+  private index: number;
   private activities: Activity[] = [];
   private activeRecords: number[];
   private centerIndex = 3;
   private activeDate: Date = new Date();
+  private dateSelected = false;
+  private recordDetailsVisible = false;
 
   constructor(private activityService: ActivityService) { }
 
@@ -20,7 +23,6 @@ export class LogComponent implements OnInit {
     this.activityService.activitiesChanged.subscribe( activites => {
       this.activities = activites;
     });
-    
     this.updateActiveDate(this.centerIndex);
   }
 
@@ -36,10 +38,23 @@ export class LogComponent implements OnInit {
   }
 
   updateActiveDate(index: number): void {
+    this.index = index;
     const relativeDay = this.centerIndex - index;    
     let newActiveDate = new Date();
     newActiveDate.setDate(newActiveDate.getDate() - relativeDay);
     this.activeDate = newActiveDate;
     this.updateActiveRecords(index);
+  }
+
+  dateSelectedInteraction(iteration: number): void {
+    this.dateSelected = true;
+    this.recordDetailsVisible =  true;
+    this.updateActiveDate(this.index + iteration);
+    console.log(this.activeDate);
+  }
+
+  closeRecordDetails(): void {
+    this.dateSelected = false;
+    this.recordDetailsVisible = false;
   }
 }

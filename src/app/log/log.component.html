@@ -1,10 +1,15 @@
 <app-date-slider
     [activeRecords]="activeRecords"
-    (indexChanged)="updateActiveDate($event)"
+    [dateSelected]="dateSelected"
     [activeDate]="activeDate"
+    (dateSelectedInteraction)="dateSelectedInteraction($event)"
+    (indexChanged)="updateActiveDate($event)"
 ></app-date-slider>
 
 <app-record-details
     [records]="records"
+    [activeDate]="activeDate"
+    [visible]="recordDetailsVisible"
+    (closeRecordDetails)="closeRecordDetails()"
 >    
 </app-record-details>
