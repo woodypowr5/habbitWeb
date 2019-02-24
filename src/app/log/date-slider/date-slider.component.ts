@@ -34,6 +34,7 @@ import { trigger, transition, animate, style, state } from '@angular/animations'
 })
 export class DateSliderComponent implements OnInit {
   @Input() activeRecords: any[] = [];
+  @Input() activeDate: Date;
   @Output() indexChanged: EventEmitter<number> = new EventEmitter();
   private index = 3;
   private slideLeftActive = 'complete';
@@ -62,5 +63,16 @@ export class DateSliderComponent implements OnInit {
   slideDone(event) {
     this.slideLeftActive = 'complete';
     this.slideRightActive = 'complete';
+  }
+
+  computeCalendarDate(iteration: number): string {
+    let newDate = new Date(this.activeDate);
+    const monthNames = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
+    ]
+    
+    newDate.setDate(this.activeDate.getDate() + iteration);
+    
+    return monthNames[newDate.getMonth()] + ' ' + newDate.getDate();
   }
 }

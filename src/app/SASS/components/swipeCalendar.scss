@@ -3,7 +3,8 @@ $calendarDayWidth: 29%;
 $gutterWidth: 2%;
 
 .app-swipe-calendar{
-    height: 150px;
+    height: 180px;
+    margin-top: -4px;
     margin-left: -$calendarDayWidth - $gutterWidth + 4.5;
 }
 .app-swipe-calendar .date-wrapper {
@@ -11,7 +12,7 @@ $gutterWidth: 2%;
     position: absolute;
     margin-right: (50% - (3 * 30)) / 3;
     padding: 5px;
-    height: 150px;
+    height: 180px;
     display: inline-block;
 }
 .app-swipe-calendar .date-wrapper:nth-child(1) {
@@ -38,4 +39,7 @@ $gutterWidth: 2%;
 }
 .next-day-button{
     right: 0px;
+}
+.card-header{
+    text-align: center;
 }
