@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../shared/types/activity.model';
+import { ActivityService } from '../shared/services/activity.service';
 
 @Component({
   selector: 'app-activities',
@@ -9,7 +10,12 @@ import { Activity } from '../shared/types/activity.model';
 export class ActivitiesComponent implements OnInit {
   private activities: Activity[] = [];
   
-  constructor() { }
+  constructor(private activityService: ActivityService) { 
+    this.activityService.activitiesChanged.subscribe( activities => {
+      console.log(activities);
+      this.activities = activities;
+    });
+  }
 
   ngOnInit() {
   }

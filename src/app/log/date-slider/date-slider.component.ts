@@ -1,7 +1,7 @@
-import { Component, OnInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ViewChild, ElementRef} from '@angular/core';
 import { Record } from '../../shared/types/record.model';
-import { trigger, transition, animate, style, state } from '@angular/animations';
+import { trigger } from '@angular/animations';
 import { dateSliderTriggers } from './date-slider.triggers';
 
 @Component({
@@ -21,9 +21,7 @@ export class DateSliderComponent implements OnInit {
   private slideLeftActive = 'complete';
   private slideRightActive = 'complete'; 
 
-  constructor() { 
-    
-  }
+  constructor() {}
 
   ngOnInit() {
     this.indexChanged.emit(this.index);
@@ -53,7 +51,6 @@ export class DateSliderComponent implements OnInit {
     ]
     
     newDate.setDate(this.activeDate.getDate() + iteration);
-    
     return monthNames[newDate.getMonth()] + ' ' + newDate.getDate();
   }
 }

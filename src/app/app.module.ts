@@ -15,6 +15,7 @@ import { ActivitiesActionsComponent } from './activities/activities-actions/acti
 import { ActivityInstanceComponent } from './activities/activity-list/activity-instance/activity-instance.component';
 import { LogComponent } from './log/log.component';
 import { DateSliderComponent } from './log/date-slider/date-slider.component';
+import { RecordDetailsComponent } from './log/record-details/record-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DateSliderComponent } from './log/date-slider/date-slider.component';
     ActivitiesActionsComponent,
     ActivityInstanceComponent,
     LogComponent,
-    DateSliderComponent
+    DateSliderComponent,
+    RecordDetailsComponent
   ],
   imports: [
     BrowserModule,
