@@ -16,6 +16,7 @@ import { ActivityInstanceComponent } from './activities/activity-list/activity-i
 import { LogComponent } from './log/log.component';
 import { DateSliderComponent } from './log/date-slider/date-slider.component';
 import { RecordDetailsComponent } from './log/record-details/record-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RecordDetailsComponent } from './log/record-details/record-details.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     ClarityModule,
-    CollapsibleModule
+    CollapsibleModule,
+    FormsModule
   ],
   providers: [
     AuthService

@@ -3,6 +3,7 @@ import { ViewChild, ElementRef} from '@angular/core';
 import { Record } from '../../shared/types/record.model';
 import { trigger } from '@angular/animations';
 import { dateSliderTriggers } from './date-slider.triggers';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-date-slider',
@@ -21,7 +22,7 @@ export class DateSliderComponent implements OnInit {
   @Output() indexChanged: EventEmitter<number> = new EventEmitter();
   private index = 3;
   private slideLeftActive = 'complete';
-  private slideRightActive = 'complete'; 
+  private slideRightActive = 'complete';
 
   constructor() {}
 
@@ -47,21 +48,19 @@ export class DateSliderComponent implements OnInit {
   }
 
   computeCalendarDate(iteration: number): string {
-    let newDate = new Date(this.activeDate);
+    const newDate = new Date(this.activeDate);
     const monthNames = [
       'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
-    ]
-    
+    ];
     newDate.setDate(this.activeDate.getDate() + iteration);
     return monthNames[newDate.getMonth()] + ' ' + newDate.getDate();
   }
 
-  dateClicked(iteration: number):void {
+  dateClicked(iteration: number): void {
     this.dateSelectedInteraction.emit(iteration);
-    if(iteration < 0){
+    if (iteration < 0) {
       this.previousDay();
-    }
-    else if (iteration > 0) {
+    } else if (iteration > 0) {
       this.nextDay();
     }
   }

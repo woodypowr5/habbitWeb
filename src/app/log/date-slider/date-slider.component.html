@@ -24,14 +24,17 @@
        
       </div>  
 
-  <div class="btn-group btn-outline-primary">
-      <button class="calendar-button btn " (click)="launchCalendar()">
-          <clr-icon shape="calendar"></clr-icon>
-      </button>
+  <div class="datepicker-group btn-group btn-outline-primary">
+      <form class="form" #simpleForm="ngForm">
+        <div class="form-block">
+            <div class="form-group">
+                <input type="date" id="date" name="date" [(ngModel)]="date" clrDate>
+            </div>
+        </div>
+      </form>
   </div>  
   <div class="btn-group btn-outline-primary">
       <button class="prev-day-button btn" (click)="previousDay()">Month</button>
       <button class="next-day-button btn" (click)="nextDay()">Next</button> 
     </div>
-      
   </div>

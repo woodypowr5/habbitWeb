@@ -2,7 +2,8 @@
 
 .swiper-container{
     height: 150px;
-    // overflow: visible;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
 }
 
 .date-wrapper{
@@ -10,12 +11,40 @@
 }
 
 .controls{
-    margin-top: 22px;
+    margin-top: 52px;
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 15px 20px;
 }
 
 .btn-group{
     margin-right: 0px;
+}
+
+.datepicker-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.datepicker-trigger-icon{
+    width: 30px;
+    height: 30px;
+}
+
+.form{
+    padding-top: 0px;
+    margin: unset;
+}
+
+.form-group{
+    padding-left: 0px;
+}
+
+.form-block{
+    margin-top: 0px;
 }
