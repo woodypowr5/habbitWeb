@@ -1,0 +1,13 @@
+.app-close-button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.app-close-button clr-icon{
+    width: 30px;
+    height: 30px;
+    color: gray;
+}
+.app-close-button clr-icon:hover{
+    cursor: pointer;
+}

@@ -16,7 +16,22 @@
           <img class="record-exists" src="/assets/images/greenX.png" alt="">
       </div>
     </div>
-    <button class="prev-day-button" (click)="previousDay()">Prev</button>
-    <button class="next-day-button" (click)="nextDay()">Next</button>
 </div>
-<br>
+<div class="controls">
+    <div class="btn-group btn-outline-primary">
+        <button class="prev-day-button btn" (click)="previousDay()">Prev</button>
+        <button class="next-day-button btn" (click)="nextDay()">Month</button>    
+       
+      </div>  
+
+  <div class="btn-group btn-outline-primary">
+      <button class="calendar-button btn " (click)="launchCalendar()">
+          <clr-icon shape="calendar"></clr-icon>
+      </button>
+  </div>  
+  <div class="btn-group btn-outline-primary">
+      <button class="prev-day-button btn" (click)="previousDay()">Month</button>
+      <button class="next-day-button btn" (click)="nextDay()">Next</button> 
+    </div>
+      
+  </div>

@@ -5,11 +5,11 @@ export const recordDetailTriggers = {
         transition(
             ':enter', [
                 style({
-                    // opacity: 0,
+                    opacity: 0.75,
                     maxWidth: '0px'
                 }),
                 animate('100ms', style({
-                    // opacity: 1,
+                    opacity: 1,
                     maxWidth: '500px'
                 }))
             ]
@@ -17,11 +17,11 @@ export const recordDetailTriggers = {
         transition(
             ':leave', [
                 style({
-                    // opacity: 1,
+                    opacity: 1,
                     maxWidth: '500px'
                     }),
                 animate('100ms', style({
-                    //  opacity: 0,
+                     opacity: 0.75,
                      maxWidth: '0px'
                 }))
             ]

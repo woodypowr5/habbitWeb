@@ -6,5 +6,16 @@
 }
 
 .date-wrapper{
-    @extend .app-swipe-calendar
+    @extend .app-swipe-calendar;
+}
+
+.controls{
+    margin-top: 22px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group{
+    margin-right: 0px;
 }

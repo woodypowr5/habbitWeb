@@ -6,6 +6,7 @@
   <div class="card-header">
     {{ activeDate.toLocaleDateString("en-US", dateFormatOptions) }}
   </div>
-  
-  <button (click)="close()">X</button>
+  <button class="btn btn-link btn-icon close-button" (click)="close()">
+    <clr-icon shape="close"></clr-icon>
+  </button>  
 </div>

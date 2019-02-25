@@ -30,10 +30,7 @@ $gutterWidth: 2%;
 .app-swipe-calendar .date-wrapper:nth-child(5) {
     left: (4 *$calendarDayWidth) + (4 * $gutterWidth);
 }
-.prev-day-button, .next-day-button{
-    position: absolute;
-    bottom: 10px;
-}
+
 .prev-day-button{
     left: 0px;
 }
@@ -50,5 +47,5 @@ $gutterWidth: 2%;
     margin: 30px auto;
 }
 .selected{
-    outline: 2px solid red;
+    background-color: #EEE;
 }
