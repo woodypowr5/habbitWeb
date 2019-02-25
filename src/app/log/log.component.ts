@@ -11,11 +11,10 @@ import { Activity } from '../shared/types/activity.model';
 export class LogComponent implements OnInit {
   private index: number;
   private activities: Activity[] = [];
-  private activeRecords: number[];
+  private masterRecords: boolean[] = [false, false, false, false, false];
   private centerIndex = 3;
   private activeDate: Date = new Date();
   private dateSelected = false;
-  private recordDetailsVisible = false;
 
   constructor(private activityService: ActivityService) { }
 
@@ -26,15 +25,13 @@ export class LogComponent implements OnInit {
     this.updateActiveDate(this.centerIndex);
   }
 
-  updateActiveRecords(index: number): void {
-    let activeRecords: any[] = [];
-    // (index >= 2 )? activeRecords.push(this.records[index - 2]): activeRecords.push(null);
-    // (index >= 1 )? activeRecords.push(this.records[index - 1]): activeRecords.push(null);
-    // (index >= 0 )? activeRecords.push(this.records[index]): activeRecords.push(null);
-    // (index + 1 < this.records.length )? activeRecords.push(this.records[index + 1]): activeRecords.push(null);
-    // (index + 2 < this.records.length )? activeRecords.push(this.records[index + 2]): activeRecords.push(null);
-    // console.log(this.activeRecords);
-    this.activeRecords = activeRecords;
+  updateMasterRecords(index: number): void {
+    [-2, -1, 0, 1, 2].map( iteration => {
+      let date = new Date();
+      const relativeDay = index - this.centerIndex;    
+      date.setDate(date.getDate() + iteration + relativeDay);
+      this.masterRecords[iteration + 2] = this.activityService.recordExistsForDate(date);
+    });
   }
 
   updateActiveDate(index: number): void {
@@ -43,18 +40,15 @@ export class LogComponent implements OnInit {
     let newActiveDate = new Date();
     newActiveDate.setDate(newActiveDate.getDate() - relativeDay);
     this.activeDate = newActiveDate;
-    this.updateActiveRecords(index);
+    this.updateMasterRecords(index);
   }
 
   dateSelectedInteraction(iteration: number): void {
     this.dateSelected = true;
-    this.recordDetailsVisible =  true;
     this.updateActiveDate(this.index + iteration);
-    console.log(this.activeDate);
   }
 
   closeRecordDetails(): void {
     this.dateSelected = false;
-    this.recordDetailsVisible = false;
   }
 }

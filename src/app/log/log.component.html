@@ -1,5 +1,5 @@
 <app-date-slider
-    [activeRecords]="activeRecords"
+    [activeMasterRecords]="masterRecords"
     [dateSelected]="dateSelected"
     [activeDate]="activeDate"
     (dateSelectedInteraction)="dateSelectedInteraction($event)"
@@ -9,7 +9,7 @@
 <app-record-details
     [records]="records"
     [activeDate]="activeDate"
-    [visible]="recordDetailsVisible"
+    [visible]="dateSelected"
     (closeRecordDetails)="closeRecordDetails()"
 >    
 </app-record-details>

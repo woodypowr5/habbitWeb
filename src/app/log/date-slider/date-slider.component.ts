@@ -15,7 +15,7 @@ import { NgForm } from '@angular/forms';
   ]
 })
 export class DateSliderComponent implements OnInit {
-  @Input() activeRecords: any[] = [];
+  @Input() activeMasterRecords: boolean[] = [];
   @Input() activeDate: Date;
   @Input() dateSelected: boolean;
   @Output() dateSelectedInteraction: EventEmitter<number> = new EventEmitter();

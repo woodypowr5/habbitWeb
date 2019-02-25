@@ -1,7 +1,7 @@
 <div class="app-swipe-calendar">
     <div 
       class="date-wrapper card" 
-      *ngFor="let iteration of [-2,-1,0,1,2]" 
+      *ngFor="let iteration of [-2,-1,0,1,2]; "
       [@slideLeft]="slideLeftActive.toString()"  
       (@slideLeft.done)="slideDone($event)" 
       [@slideRight]="slideRightActive.toString()"  
@@ -12,7 +12,8 @@
       <div class="card-header">
         {{ computeCalendarDate(iteration) }}
       </div>  
-      <div class="card-block">
+     
+      <div class="card-block" *ngIf="activeMasterRecords[iteration + 2] === true">
           <img class="record-exists" src="/assets/images/greenX.png" alt="">
       </div>
     </div>
