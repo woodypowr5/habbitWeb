@@ -3,6 +3,7 @@
   *ngIf="visible === true"
   [@open]
 >
+  {{ records | json}}
   <div class="card-header">
     {{ activeDate.toLocaleDateString("en-US", dateFormatOptions) }}
   </div>

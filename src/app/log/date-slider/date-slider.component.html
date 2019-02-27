@@ -13,8 +13,8 @@
         {{ computeCalendarDate(iteration) }}
       </div>  
      
-      <div class="card-block" *ngIf="activeMasterRecords[iteration + 2] === true">
-          <img class="record-exists" src="/assets/images/greenX.png" alt="">
+      <div class="card-block">
+          <img class="record-exists" src="/assets/images/greenX.png" alt="" *ngIf="activeMasterRecords[iteration + 2] === true">
       </div>
     </div>
 </div>
@@ -22,20 +22,18 @@
     <div class="btn-group btn-outline-primary">
         <button class="prev-day-button btn" (click)="previousDay()">Prev</button>
         <button class="next-day-button btn" (click)="nextDay()">Month</button>    
-       
-      </div>  
-
-  <div class="datepicker-group btn-group btn-outline-primary">
-      <form class="form" #simpleForm="ngForm">
-        <div class="form-block">
-            <div class="form-group">
-                <input type="date" id="date" name="date" [(ngModel)]="date" clrDate>
+    </div>  
+    <div class="datepicker-group btn-group btn-outline-primary">
+        <form class="form" #simpleForm="ngForm">
+            <div class="form-block">
+                <div class="form-group">
+                    <input type="date" id="date" name="date" [(ngModel)]="date" clrDate>
+                </div>
             </div>
-        </div>
-      </form>
-  </div>  
-  <div class="btn-group btn-outline-primary">
-      <button class="prev-day-button btn" (click)="previousDay()">Month</button>
-      <button class="next-day-button btn" (click)="nextDay()">Next</button> 
+        </form>
+    </div>  
+    <div class="btn-group btn-outline-primary">
+        <button class="prev-day-button btn" (click)="previousDay()">Month</button>
+        <button class="next-day-button btn" (click)="nextDay()">Next</button> 
     </div>
-  </div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JSDocCommentStmt } from '@angular/compiler';
 import { ActivityService } from '../shared/services/activity.service';
 import { Activity } from '../shared/types/activity.model';
+import { Record } from '../shared/types/record.model';
 
 @Component({
   selector: 'app-log',
@@ -15,6 +16,7 @@ export class LogComponent implements OnInit {
   private centerIndex = 3;
   private activeDate: Date = new Date();
   private dateSelected = false;
+  private activeDateRecords: Record[] = [];
 
   constructor(private activityService: ActivityService) { }
 
@@ -46,6 +48,7 @@ export class LogComponent implements OnInit {
   dateSelectedInteraction(iteration: number): void {
     this.dateSelected = true;
     this.updateActiveDate(this.index + iteration);
+    this.activeDateRecords = this.activityService.getRecordsForDate(this.activeDate);
   }
 
   closeRecordDetails(): void {

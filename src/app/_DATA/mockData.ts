@@ -3,91 +3,108 @@ import { ActivityMetadata } from '../shared/types/activityMetadata';
 
 const activities: Activity[] = [
   {
-    name: 'Activity 1',
+    name: 'Running',
     description: 'Test',
     records: [
       {
         date: new Date('February 17, 2019'),
+        activityName: 'Runniing',
         value: 5
       },
       {
         date: new Date('February 19, 2019'),
+        activityName: 'Running',
         value: 6
       },
       {
         date: new Date('February 20, 2019'),
+        activityName: 'Running',
         value: 7
       }
     ]
   },
   {
-    name: 'Activity 2',
+    name: 'Tennis',
     description: 'Test',
     records: [
       {
         date: new Date('February 17, 2019'),
+        activityName: 'Tennis',
         value: 5
       },
       {
         date: new Date('February 19, 2019'),
+        activityName: 'Tennis',
+        
         value: 6
       },
       {
         date: new Date('February 20, 2019'),
+        activityName: 'Tennis',
         value: 7
       }
     ]
   },
   {
-    name: 'Activity 3',
+    name: 'Eating',
     records: [
       {
         date: new Date('February 17, 2019'),
+        activityName: 'Eating',        
         value: 5
       },
       {
         date: new Date('February 19, 2019'),
+        activityName: 'Eating',        
+        
         value: 6
       },
       {
         date: new Date('February 20, 2019'),
+        activityName: 'Eating',                
         value: 7
       }
     ],
     description: 'Test'
   },
   {
-    name: 'Activity 4',
+    name: 'Reading',
     description: 'Test',
     records: [
       {
         date: new Date('February 17, 2019'),
+        activityName: 'Reading',                
         value: 5
       },
       {
         date: new Date('February 19, 2019'),
+        activityName: 'Reading',                        
         value: 6
       },
       {
         date: new Date('February 20, 2019'),
+        activityName: 'Reading',                        
         value: 7
       }
     ]
   },
   {
-    name: 'Activity 5',
+    name: 'Sleeping',
     description: 'Test',
     records: [
       {
         date: new Date('February 17, 2019'),
+        activityName: 'Sleeping',                        
         value: 5
       },
       {
         date: new Date('February 19, 2019'),
+        activityName: 'Sleeping',                                
         value: 6
       },
       {
         date: new Date('February 20, 2019'),
+        activityName: 'Sleeping',                                
         value: 7
       }
     ]

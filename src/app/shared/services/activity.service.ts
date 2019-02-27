@@ -3,6 +3,7 @@ import { Activity } from '../types/activity.model';
 import { MockData } from '../../_DATA/mockData';
 import { BehaviorSubject } from 'rxjs';
 import { DateService } from './date.service';
+import { Record } from '../types/record.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,19 @@ export class ActivityService {
       } 
     }
     return false;
+  }
+
+  getRecordsForDate(date: Date): Record[] {
+    const records: Record[] = [];
+    this.activities.map( activity => {
+      for (let index = 0; index < activity.records.length; index++) {
+        const record = activity.records[index];
+        if(this.dateService.areSameDates(date, record.date)){
+          records.push(record);
+          break;
+        }
+      } 
+    });
+    return records;
   }
 }
