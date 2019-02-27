@@ -30,7 +30,7 @@ export class LogComponent implements OnInit {
   updateMasterRecords(index: number): void {
     [-2, -1, 0, 1, 2].map( iteration => {
       let date = new Date();
-      const relativeDay = index - this.centerIndex;    
+      const relativeDay = index - this.centerIndex;
       date.setDate(date.getDate() + iteration + relativeDay);
       this.masterRecords[iteration + 2] = this.activityService.recordExistsForDate(date);
     });
@@ -38,7 +38,7 @@ export class LogComponent implements OnInit {
 
   updateActiveDate(index: number): void {
     this.index = index;
-    const relativeDay = this.centerIndex - index;    
+    const relativeDay = this.centerIndex - index;
     let newActiveDate = new Date();
     newActiveDate.setDate(newActiveDate.getDate() - relativeDay);
     this.activeDate = newActiveDate;

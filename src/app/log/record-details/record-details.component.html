@@ -3,11 +3,36 @@
   *ngIf="visible === true"
   [@open]
 >
-  {{ records | json}}
   <div class="card-header">
     {{ activeDate.toLocaleDateString("en-US", dateFormatOptions) }}
+  </div>
+  <div class="card-block">
+      <div class="card-title">
+          Select an activity to create a record for the day!
+      </div>
+      <div class="card-text">
+        <collapsible-list [type]="'accordion'">
+          <collapsible-list-item
+            *ngFor="let activity of activities"så
+          >
+            <collapsible-header class="waves-effect">
+            {{ activity.name }}
+            </collapsible-header>
+            <collapsible-body [expanded]="false">
+              <p>inputs here</p>
+            </collapsible-body>
+          </collapsible-list-item>  
+        </collapsible-list>
+      </div>
+  </div>
+  <div class="card-footer">
+      <button class="btn btn-sm btn-link">Done</button>
+      <button class="btn btn-sm btn-link">Clear All</button>
   </div>
   <button class="btn btn-link btn-icon close-button" (click)="close()">
     <clr-icon shape="close"></clr-icon>
   </button>  
 </div>
+
+
+

@@ -5,8 +5,8 @@ export const recordDetailTriggers = {
         transition(
             ':enter', [
                 style({
-                    opacity: 0.75,
-                    maxWidth: '0px'
+                    opacity: 0,
+                    maxWidth: '200px'
                 }),
                 animate('100ms', style({
                     opacity: 1,
@@ -21,8 +21,8 @@ export const recordDetailTriggers = {
                     maxWidth: '500px'
                     }),
                 animate('100ms', style({
-                     opacity: 0.75,
-                     maxWidth: '0px'
+                     opacity: 0,
+                     maxWidth: '200px'
                 }))
             ]
         )

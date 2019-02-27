@@ -113,7 +113,7 @@ const activities: Activity[] = [
 
 const activitiesMetadata: ActivityMetadata[] = [
   {
-    activityName: 'Activity 1',
+    activityName: 'Running',
     numDays: 5,
     numRecords: 7,
     firstRecordDate: new Date('February 10, 2019'),
@@ -122,7 +122,7 @@ const activitiesMetadata: ActivityMetadata[] = [
     variablility: 3
   },
   {
-    activityName: 'Activity 2',
+    activityName: 'Tennis',
     numDays: 5,
     numRecords: 7,
     firstRecordDate: new Date('February 10, 2019'),
@@ -131,7 +131,7 @@ const activitiesMetadata: ActivityMetadata[] = [
     variablility: 3
   },
   {
-    activityName: 'Activity 3',
+    activityName: 'Eating',
     numDays: 5,
     numRecords: 7,
     firstRecordDate: new Date('February 10, 2019'),
@@ -140,7 +140,7 @@ const activitiesMetadata: ActivityMetadata[] = [
     variablility: 3
   },
   {
-    activityName: 'Activity 4',
+    activityName: 'Reading',
     numDays: 5,
     numRecords: 7,
     firstRecordDate: new Date('February 10, 2019'),
@@ -149,7 +149,7 @@ const activitiesMetadata: ActivityMetadata[] = [
     variablility: 3
   },
   {
-    activityName: 'Activity 5',
+    activityName: 'Sleeping',
     numDays: 5,
     numRecords: 7,
     firstRecordDate: new Date('February 10, 2019'),

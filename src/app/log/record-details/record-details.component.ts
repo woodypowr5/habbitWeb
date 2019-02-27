@@ -1,3 +1,4 @@
+import { Activity } from './../../shared/types/activity.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Record } from '../../shared/types/record.model';
 import { trigger } from '@angular/animations';
@@ -12,6 +13,7 @@ import { recordDetailTriggers } from './record-details.triggers';
   ]
 })
 export class RecordDetailsComponent implements OnInit {
+  @Input() activities: Activity[] = [];
   @Input() records: Record[] =  [];
   @Input() activeDate: Date;
   @Input() visible: boolean;
