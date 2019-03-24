@@ -1,8 +1,6 @@
-app-activities-list{
-    
-}
+@import '../SASS/components/customStyledComponent.scss';
 
-app-activities-actions {
-    position: relative;
-    top: 25px;
+:host{
+    @extend .app-custom-styled-component;
+    padding: 20px;
 }

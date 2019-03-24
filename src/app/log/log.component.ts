@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JSDocCommentStmt } from '@angular/compiler';
 import { ActivityService } from '../shared/services/activity.service';
 import { Activity } from '../shared/types/activity.model';
 import { Record } from '../shared/types/record.model';
