@@ -24,7 +24,7 @@ export class ActivityService {
 
   computeActiviesMetadata(activities: Activity[]) {
     activities.map( activity => {
-      activity.metadata = this.activityMetadataService.computeMetadata(activity);
+      activity.metadata = <ActivityMetadata> this.activityMetadataService.computeMetadata(activity);
     });
   }
 

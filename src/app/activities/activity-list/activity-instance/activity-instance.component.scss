@@ -3,3 +3,8 @@ collapsible-body{
     box-shadow: none !important;
     border: none;
 }
+
+collapsible-header{
+    display: flex;
+    justify-content: space-between;
+}

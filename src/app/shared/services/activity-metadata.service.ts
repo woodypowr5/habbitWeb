@@ -22,7 +22,6 @@ export class ActivityMetadataService {
   }
 
   computeNumDays(activity: Activity): number {
-
     return 3;
   }
 

@@ -19,6 +19,8 @@ import { RecordDetailsComponent } from './log/record-details/record-details.comp
 import { FormsModule } from '@angular/forms';
 import { Activity } from './shared/types/activity.model';
 import { ActivityMetadataService } from './shared/services/activity-metadata.service';
+import { IndicatorComponent } from './shared/components/indicators/indicator/indicator.component';
+import { MovingAverageDeltaIndicatorComponent } from './shared/components/indicators/moving-average-delta-indicator/moving-average-delta-indicator.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ActivityMetadataService } from './shared/services/activity-metadata.ser
     ActivityInstanceComponent,
     LogComponent,
     DateSliderComponent,
-    RecordDetailsComponent
+    RecordDetailsComponent,
+    IndicatorComponent,
+    MovingAverageDeltaIndicatorComponent
   ],
   imports: [
     BrowserModule,

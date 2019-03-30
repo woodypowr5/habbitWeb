@@ -1,11 +1,25 @@
-<collapsible-list [type]="'accordion'">
+<collapsible-list 
+  [type]="'accordion'"
+>
   <collapsible-list-item>
-    <collapsible-header class="waves-effect">
-      {{ activity.name }}
+    <collapsible-header 
+      class="waves-effect"
+    >
+      <div class="activity-name">
+        {{ activity.name }}
+      </div>
+       <div class="activity-summary-indicators">
+        <app-moving-average-delta-indicator
+
+        ></app-moving-average-delta-indicator>
+      </div>
     </collapsible-header>
-    <collapsible-body [expanded]="false">
+    <collapsible-body 
+      [expanded]="false"
+    >
       <p>{{ activity.description }}</p>
         {{ activity.metadata.standardDeviation }}
     </collapsible-body>
   </collapsible-list-item>  
 </collapsible-list>
+
