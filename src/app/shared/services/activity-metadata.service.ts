@@ -11,7 +11,7 @@ export class ActivityMetadataService {
   constructor() {}
 
   computeMetadata(activity: Activity): ActivityMetadata {
-    return {
+    return <ActivityMetadata> {
       numDays: this.computeNumDays(activity),
       numRecords: this.computeNumRecords(activity),
       firstRecordDate: new Date(),
