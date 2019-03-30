@@ -1,18 +1,48 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ActivityMetadata } from '../types/activityMetadata';
+import { Activity } from '../types/activity.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityMetadataService {
-  private activitiesMetadata: ActivityMetadata[] = [];
-  activitiesMetadataChanged: BehaviorSubject<ActivityMetadata[]> = new BehaviorSubject([]);
+  
+  constructor() {}
 
-  constructor() { 
-    this.activitiesMetadataChanged.subscribe( activitiesMetadata => {
-      this.activitiesMetadata = activitiesMetadata;
-    });
-    this.activitiesMetadataChanged.next(this.activitiesMetadata);
+  computeMetadata(activity: Activity): ActivityMetadata {
+    return {
+      numDays: this.computeNumDays(activity),
+      numRecords: this.computeNumRecords(activity),
+      firstRecordDate: new Date(),
+      lastRecordDate: new Date(),
+      standardDeviation: this.computeStandardDeviation(activity),
+      variablility: this.computeVariability(activity)
+    }
+  }
+
+  computeNumDays(activity: Activity): number {
+
+    return 3;
+  }
+
+  computeNumRecords(activity: Activity): number {
+    return 2;
+  }
+
+  computeFirstRecordDate(activity: Activity): Date {
+    return new Date();
+  }
+
+  computeLastRecordDate(activity: Activity): Date {
+    return new Date();
+  }
+
+  computeStandardDeviation(activity: Activity): number {
+    return 1;
+  }
+
+  computeVariability(activity: Activity): number {
+    return 4;
   }
 }

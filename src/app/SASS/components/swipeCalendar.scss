@@ -9,7 +9,7 @@ $gutterWidth: 2%;
 .app-swipe-calendar .date-wrapper {
     width: $calendarDayWidth;
     position: absolute;
-    margin-right: (50% - (3 * 30)) / 3;
+    margin-right: (50% - (3 * 30)) / 3; // magic number 3 = number of visible days on , refactor
     padding: 5px;
     height: 200px;
     display: inline-block;

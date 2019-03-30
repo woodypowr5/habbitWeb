@@ -17,6 +17,8 @@ import { LogComponent } from './log/log.component';
 import { DateSliderComponent } from './log/date-slider/date-slider.component';
 import { RecordDetailsComponent } from './log/record-details/record-details.component';
 import { FormsModule } from '@angular/forms';
+import { Activity } from './shared/types/activity.model';
+import { ActivityMetadataService } from './shared/services/activity-metadata.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    ActivityMetadataService
   ],
   bootstrap: [AppComponent]
 })

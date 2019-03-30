@@ -1,10 +1,11 @@
 <collapsible-list [type]="'accordion'">
   <collapsible-list-item>
     <collapsible-header class="waves-effect">
-      {{ name }}
+      {{ activity.name }}
     </collapsible-header>
     <collapsible-body [expanded]="false">
-      <p>{{ description }}</p>
+      <p>{{ activity.description }}</p>
+        {{ activity.metadata.standardDeviation }}
     </collapsible-body>
   </collapsible-list-item>  
 </collapsible-list>

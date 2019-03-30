@@ -4,6 +4,8 @@ import { MockData } from '../../_DATA/mockData';
 import { BehaviorSubject } from 'rxjs';
 import { DateService } from './date.service';
 import { Record } from '../types/record.model';
+import { ActivityMetadata } from '../types/activityMetadata';
+import { ActivityMetadataService } from './activity-metadata.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +14,18 @@ export class ActivityService {
   private activities: Activity[] = [];
   activitiesChanged: BehaviorSubject<Activity[]> = new BehaviorSubject([]);
 
-  constructor(private dateService: DateService) { 
+  constructor(private dateService: DateService, private activityMetadataService: ActivityMetadataService) { 
     this.activitiesChanged.subscribe( activities => {
       this.activities = activities;
+      this.computeActiviesMetadata(this.activities);
     });
     this.activitiesChanged.next(MockData.activities);
+  }
+
+  computeActiviesMetadata(activities: Activity[]) {
+    activities.map( activity => {
+      activity.metadata = this.activityMetadataService.computeMetadata(activity);
+    });
   }
 
   recordExistsForDate(date: Date): boolean {

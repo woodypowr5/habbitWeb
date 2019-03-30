@@ -12,11 +12,10 @@ export class ActivitiesComponent implements OnInit {
   
   constructor(private activityService: ActivityService) { 
     this.activityService.activitiesChanged.subscribe( activities => {
-      console.log(activities);
       this.activities = activities;
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
 }
