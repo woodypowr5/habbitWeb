@@ -9,8 +9,9 @@
         {{ activity.name }}
       </div>
        <div class="activity-summary-indicators">
+          {{ activity.metadata.numDays }}
         <app-moving-average-delta-indicator
-
+          
         ></app-moving-average-delta-indicator>
       </div>
     </collapsible-header>

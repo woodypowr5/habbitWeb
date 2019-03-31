@@ -12,4 +12,8 @@ export class DateService {
         date1.getMonth() === date2.getMonth() &&
         date1.getFullYear() === date2.getFullYear() 
   }
+
+  computeDaysBetween(firstDate: Date, secondDate: Date): number {
+    return Math.floor( (secondDate.valueOf() - firstDate.valueOf()) / 86400000) - 1;
+  }
 }

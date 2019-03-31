@@ -2,46 +2,45 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ActivityMetadata } from '../types/activityMetadata';
 import { Activity } from '../types/activity.model';
+import { Record } from '../types/record.model';
+import { DataUtilityService } from './data-utility.service';
+import { DateService } from './date.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityMetadataService {
   
-  constructor() {}
+  constructor(private dataUtilityService: DataUtilityService, private dateService: DateService) {}
 
-  computeMetadata(activity: Activity): ActivityMetadata {
+  computeMetadata(records: Record[]): ActivityMetadata {
     return <ActivityMetadata> {
-      numDays: this.computeNumDays(activity),
-      numRecords: this.computeNumRecords(activity),
+      numDays: this.computeNumDays(records),
+      numRecords: records.length,
       firstRecordDate: new Date(),
       lastRecordDate: new Date(),
-      standardDeviation: this.computeStandardDeviation(activity),
-      variablility: this.computeVariability(activity)
+      standardDeviation: this.computeStandardDeviation(records),
+      variablility: this.computeVariability(records)
     }
   }
 
-  computeNumDays(activity: Activity): number {
-    return 3;
+  computeNumDays(records: Record[]): number {
+    return this.dateService.computeDaysBetween(records[0].date, records[records.length - 1].date) + 2;
   }
 
-  computeNumRecords(activity: Activity): number {
-    return 2;
-  }
-
-  computeFirstRecordDate(activity: Activity): Date {
+  computeFirstRecordDate(records: Record[]): Date {
     return new Date();
   }
 
-  computeLastRecordDate(activity: Activity): Date {
+  computeLastRecordDate(records: Record[]): Date {
     return new Date();
   }
 
-  computeStandardDeviation(activity: Activity): number {
+  computeStandardDeviation(records: Record[]): number {
     return 1;
   }
 
-  computeVariability(activity: Activity): number {
+  computeVariability(records: Record[]): number {
     return 4;
   }
 }

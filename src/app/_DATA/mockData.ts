@@ -15,7 +15,7 @@ const activities: Activity[] = [
         value: 6
       },
       {
-        date: new Date('February 20, 2019'),
+        date: new Date('March 30, 2019'),
         value: 7
       }
     ],

@@ -24,21 +24,12 @@ export class ActivityService {
 
   computeActiviesMetadata(activities: Activity[]) {
     activities.map( activity => {
-      activity.metadata = <ActivityMetadata> this.activityMetadataService.computeMetadata(activity);
+      activity.metadata = <ActivityMetadata> this.activityMetadataService.computeMetadata(activity.records);
     });
   }
 
   recordExistsForDate(date: Date): boolean {
-    for (let i = 0; i < this.activities.length; i++) {
-      const activity = this.activities[i];
-      for (let j = 0; j < activity.records.length; j++) {
-        const record = activity.records[j];
-        if(this.dateService.areSameDates(date, record.date)){
-          return true;
-        }
-      } 
-    }
-    return false;
+    return this.getRecordsForDate(date).length > 0; 
   }
 
   getRecordsForDate(date: Date): Record[] {
