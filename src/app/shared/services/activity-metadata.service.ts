@@ -5,6 +5,8 @@ import { Activity } from '../types/activity.model';
 import { Record } from '../types/record.model';
 import { DataUtilityService } from './data-utility.service';
 import { DateService } from './date.service';
+import * as jStat from 'node_modules/jStat/dist/jstat.min.js';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +19,10 @@ export class ActivityMetadataService {
     return <ActivityMetadata> {
       numDays: this.computeNumDays(records),
       numRecords: records.length,
-      firstRecordDate: new Date(),
-      lastRecordDate: new Date(),
+      firstRecordDate: records[0].date,
+      lastRecordDate: records[records.length - 1].date,
       standardDeviation: this.computeStandardDeviation(records),
-      variablility: this.computeVariability(records)
+      variability: this.computeVariability(records)
     }
   }
 
@@ -28,19 +30,12 @@ export class ActivityMetadataService {
     return this.dateService.computeDaysBetween(records[0].date, records[records.length - 1].date) + 2;
   }
 
-  computeFirstRecordDate(records: Record[]): Date {
-    return new Date();
-  }
-
-  computeLastRecordDate(records: Record[]): Date {
-    return new Date();
-  }
-
   computeStandardDeviation(records: Record[]): number {
-    return 1;
+   return jStat.stdev(records.map(record => record.value));
   }
 
   computeVariability(records: Record[]): number {
-    return 4;
+    console.log()
+    return jStat.stdev(records.map(record => record.value)) / records.length;
   }
 }

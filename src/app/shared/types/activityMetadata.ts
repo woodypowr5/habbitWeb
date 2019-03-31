@@ -4,5 +4,5 @@ export interface ActivityMetadata {
     firstRecordDate: Date;
     lastRecordDate: Date;
     standardDeviation: number;
-    variablility: number; 
+    variability: number; 
 }

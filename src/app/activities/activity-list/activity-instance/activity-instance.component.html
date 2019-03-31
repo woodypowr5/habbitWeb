@@ -8,8 +8,10 @@
       <div class="activity-name">
         {{ activity.name }}
       </div>
-       <div class="activity-summary-indicators">
-          {{ activity.metadata.numDays }}
+       <div class="activity-summary-indicators" *ngIf="activity.metadata !== null">
+          Num Days: {{ activity.metadata.numDays }}
+          Std Dev: {{ activity.metadata.standardDeviation }}
+          Variability: {{ activity.metadata.variability }}
         <app-moving-average-delta-indicator
           
         ></app-moving-average-delta-indicator>
@@ -19,7 +21,6 @@
       [expanded]="false"
     >
       <p>{{ activity.description }}</p>
-        {{ activity.metadata.standardDeviation }}
     </collapsible-body>
   </collapsible-list-item>  
 </collapsible-list>
