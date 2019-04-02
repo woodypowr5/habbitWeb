@@ -7,7 +7,6 @@ import { DataUtilityService } from './data-utility.service';
 import { DateService } from './date.service';
 import * as jStat from 'node_modules/jStat/dist/jstat.min.js';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,20 +23,38 @@ export class ActivityMetadataService {
       numRecords: records.length,
       firstRecordDate: records[0].date,
       lastRecordDate: records[records.length - 1].date,
-      standardDeviation: this.computeStandardDeviation(records),
-      variability: this.computeVariability(records)
+      standardDeviation: this.computeStandardDeviation(records)
     };
   }
 
   computeNumDays(records: Record[]): number {
-    return this.dateService.computeDaysBetween(records[0].date, records[records.length - 1].date) + 2;
+    if (records.length === 0) {
+      return 0;
+    }
+    const firstDay = new Date(
+      records[0].date.getFullYear(),
+      records[0].date.getMonth(),
+      records[0].date.getDate()
+    );
+    const lastDay = new Date(
+      records[records.length - 1].date.getFullYear(),
+      records[records.length - 1].date.getMonth(),
+      records[records.length - 1].date.getDate()
+    );
+    return this.dateService.computeDaysBetween(this.setToEndOfDay(firstDay), lastDay) + 1;
+  }
+
+  private setToEndOfDay(date: Date): Date {
+    return new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(), 23, 59, 59);
   }
 
   computeStandardDeviation(records: Record[]): number {
-   return jStat.stdev(records.map(record => record.value));
-  }
-
-  computeVariability(records: Record[]): number {
-    return jStat.stdev(records.map(record => record.value)) / records.length;
+    if (records.length <= 1) {
+      return 0;
+    }
+    return jStat.stdev(records.map(record => record.value));
   }
 }

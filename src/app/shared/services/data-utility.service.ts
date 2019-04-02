@@ -7,7 +7,7 @@ export class DataUtilityService {
 
   constructor() { }
 
-  orderObjectsByProperty(objects: any[], propertyName: string) { // not verified correct, unit tests needed
+  orderObjectsByProperty(objects: any[], propertyName: string) {
     return objects
       .slice()
       .sort(
