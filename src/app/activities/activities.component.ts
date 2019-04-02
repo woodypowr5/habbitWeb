@@ -9,13 +9,12 @@ import { ActivityService } from '../shared/services/activity.service';
 })
 export class ActivitiesComponent implements OnInit {
   private activities: Activity[] = [];
-  
-  constructor(private activityService: ActivityService) { 
+
+  constructor(private activityService: ActivityService) {
     this.activityService.activitiesChanged.subscribe( activities => {
       this.activities = activities;
     });
   }
 
   ngOnInit() {}
-
 }

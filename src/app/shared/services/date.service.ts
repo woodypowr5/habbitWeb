@@ -10,10 +10,10 @@ export class DateService {
   areSameDates(date1: Date, date2: Date): boolean {
     return date1.getDate() === date2.getDate() &&
         date1.getMonth() === date2.getMonth() &&
-        date1.getFullYear() === date2.getFullYear() 
+        date1.getFullYear() === date2.getFullYear();
   }
 
   computeDaysBetween(firstDate: Date, secondDate: Date): number {
-    return Math.floor( (secondDate.valueOf() - firstDate.valueOf()) / 86400000) - 1;
+    return Math.floor(Math.abs((secondDate.valueOf() - firstDate.valueOf()) / 86400000));
   }
 }

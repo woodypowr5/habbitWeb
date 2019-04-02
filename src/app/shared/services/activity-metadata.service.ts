@@ -12,18 +12,21 @@ import * as jStat from 'node_modules/jStat/dist/jstat.min.js';
   providedIn: 'root'
 })
 export class ActivityMetadataService {
-  
-  constructor(private dataUtilityService: DataUtilityService, private dateService: DateService) {}
+
+  constructor(
+    private dataUtilityService: DataUtilityService,
+    private dateService: DateService
+  ) {}
 
   computeMetadata(records: Record[]): ActivityMetadata {
-    return <ActivityMetadata> {
+    return {
       numDays: this.computeNumDays(records),
       numRecords: records.length,
       firstRecordDate: records[0].date,
       lastRecordDate: records[records.length - 1].date,
       standardDeviation: this.computeStandardDeviation(records),
       variability: this.computeVariability(records)
-    }
+    };
   }
 
   computeNumDays(records: Record[]): number {
@@ -35,7 +38,6 @@ export class ActivityMetadataService {
   }
 
   computeVariability(records: Record[]): number {
-    console.log()
     return jStat.stdev(records.map(record => record.value)) / records.length;
   }
 }

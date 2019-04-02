@@ -14,7 +14,7 @@ export class ActivityService {
   private activities: Activity[] = [];
   activitiesChanged: BehaviorSubject<Activity[]> = new BehaviorSubject([]);
 
-  constructor(private dateService: DateService, private activityMetadataService: ActivityMetadataService) { 
+  constructor(private dateService: DateService, private activityMetadataService: ActivityMetadataService) {
     this.activitiesChanged.subscribe( activities => {
       this.activities = activities;
       this.computeActiviesMetadata(this.activities);
@@ -24,24 +24,23 @@ export class ActivityService {
 
   computeActiviesMetadata(activities: Activity[]) {
     activities.map( activity => {
-      activity.metadata = <ActivityMetadata> this.activityMetadataService.computeMetadata(activity.records);
+      activity.metadata = this.activityMetadataService.computeMetadata(activity.records) as ActivityMetadata;
     });
   }
 
   recordExistsForDate(date: Date): boolean {
-    return this.getRecordsForDate(date).length > 0; 
+    return this.getRecordsForDate(date).length > 0;
   }
 
   getRecordsForDate(date: Date): Record[] {
     const records: Record[] = [];
     this.activities.map( activity => {
-      for (let index = 0; index < activity.records.length; index++) {
-        const record = activity.records[index];
-        if(this.dateService.areSameDates(date, record.date)){
+      for (const record of activity.records) {
+        if (this.dateService.areSameDates(date, record.date)) {
           records.push(record);
           break;
         }
-      } 
+      }
     });
     return records;
   }

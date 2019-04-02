@@ -11,7 +11,7 @@ export class DataUtilityService {
     return objects
       .slice()
       .sort(
-        function (firstObject, secondObject) {
+        (firstObject, secondObject) => {
           return firstObject[propertyName] < secondObject[propertyName] ? -1 : 1;
         }
       );
