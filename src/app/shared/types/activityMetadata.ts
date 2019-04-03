@@ -6,4 +6,6 @@ export interface ActivityMetadata {
     standardDeviation: number;
     weeklyAverageDelta: number;
     globalAverage: number;
+    longestRecordStreak: number;
+    currentRecordStreak: number;
 }

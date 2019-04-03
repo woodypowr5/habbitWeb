@@ -13,6 +13,12 @@ export class DateService {
         date1.getFullYear() === date2.getFullYear();
   }
 
+  isNextDay(date: Date, previousDaysDate: Date): boolean {
+    const addOneDay: Date = previousDaysDate;
+    addOneDay.setDate(previousDaysDate.getDate() + 1);
+    return this.areSameDates(addOneDay, date);
+  }
+
   computeDaysBetween(firstDate: Date, secondDate: Date): number {
     return Math.floor(Math.abs((secondDate.valueOf() - firstDate.valueOf()) / 86400000));
   }

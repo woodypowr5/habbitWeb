@@ -25,7 +25,9 @@ export class ActivityMetadataService {
       lastRecordDate: records[records.length - 1].date,
       standardDeviation: this.computeStandardDeviation(records),
       weeklyAverageDelta: this.computeWeeklyAverageDelta(records),
-      globalAverage: this.computeGlobalAverage(records)
+      globalAverage: this.computeGlobalAverage(records),
+      longestRecordStreak: this.computeLongestRecordStreak(records),
+      currentRecordStreak: this.computeCurrentRecordStreak(records)
     };
   }
 
@@ -63,5 +65,33 @@ export class ActivityMetadataService {
   computeWeeklyAverageDelta(records: Record[]): number {
       const today =  this.dateService.setToStartOfDay(new Date());
       return 5;
+  }
+
+  computeCurrentRecordStreak(records: Record[]): number {
+   return 5;
+  }
+
+  computeLongestRecordStreak(records: Record[]): number {
+    let currentStreak = 0;
+    let longestStreak = 0;
+    for (let index = 0; index < records.length; index++) {
+      let prevRecord = null;
+      const currentRecord: Record = records[index];
+      if (index === 0) {
+        currentStreak ++;
+        longestStreak ++;
+      } else {
+        prevRecord = records[index - 1];
+        if (this.dateService.isNextDay(currentRecord.date, prevRecord.date)) {
+          currentStreak ++;
+          if (currentStreak > longestStreak) {
+            longestStreak ++;
+          }
+        } else {
+          currentStreak = 0;
+        }
+      }
+    }
+    return longestStreak;
   }
 }

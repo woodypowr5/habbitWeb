@@ -11,5 +11,4 @@ export class IndicatorComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
