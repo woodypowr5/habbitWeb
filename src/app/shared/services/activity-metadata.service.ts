@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { ActivityMetadata } from '../types/activityMetadata';
-import { Activity } from '../types/activity.model';
 import { Record } from '../types/record.model';
 import { DataUtilityService } from './data-utility.service';
 import { DateService } from './date.service';
@@ -62,12 +60,12 @@ export class ActivityMetadataService {
     return jStat.stdev(records.map(record => record.value));
   }
 
-  computeWeeklyAverageDelta(records: Record[]): number {
+  computeWeeklyAverageDelta(records: Record[]): number { // need tests
       const today =  this.dateService.setToStartOfDay(new Date());
       return 5;
   }
 
-  computeCurrentRecordStreak(records: Record[]): number {
+  computeCurrentRecordStreak(records: Record[]): number { // need tests
    return 5;
   }
 

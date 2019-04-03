@@ -21,6 +21,9 @@ import { Activity } from './shared/types/activity.model';
 import { ActivityMetadataService } from './shared/services/activity-metadata.service';
 import { IndicatorComponent } from './shared/components/indicators/indicator/indicator.component';
 import { MovingAverageDeltaIndicatorComponent } from './shared/components/indicators/moving-average-delta-indicator/moving-average-delta-indicator.component';
+import { GoalsComponent } from './goals/goals.component';
+import { GoalsSummaryComponent } from './goals/goals-summary/goals-summary.component';
+import { GoalsActivitiesListComponent } from './goals/goals-activities-list/goals-activities-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { MovingAverageDeltaIndicatorComponent } from './shared/components/indica
     DateSliderComponent,
     RecordDetailsComponent,
     IndicatorComponent,
-    MovingAverageDeltaIndicatorComponent
+    MovingAverageDeltaIndicatorComponent,
+    GoalsComponent,
+    GoalsSummaryComponent,
+    GoalsActivitiesListComponent
   ],
   imports: [
     BrowserModule,
