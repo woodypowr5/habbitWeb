@@ -23,7 +23,9 @@ export class ActivityMetadataService {
       numRecords: records.length,
       firstRecordDate: records[0].date,
       lastRecordDate: records[records.length - 1].date,
-      standardDeviation: this.computeStandardDeviation(records)
+      standardDeviation: this.computeStandardDeviation(records),
+      weeklyAverageDelta: this.computeWeeklyAverageDelta(records),
+      globalAverage: this.computeGlobalAverage(records)
     };
   }
 
@@ -41,14 +43,14 @@ export class ActivityMetadataService {
       records[records.length - 1].date.getMonth(),
       records[records.length - 1].date.getDate()
     );
-    return this.dateService.computeDaysBetween(this.setToEndOfDay(firstDay), lastDay) + 1;
+    return this.dateService.computeDaysBetween(this.dateService.setToEndOfDay(firstDay), this.dateService.setToStartOfDay(lastDay)) + 1;
   }
 
-  private setToEndOfDay(date: Date): Date {
-    return new Date(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(), 23, 59, 59);
+  computeGlobalAverage(records: Record[]): number {
+    if (records.length === 0) {
+      return null;
+    }
+    return jStat.mean(records.map(record => record.value));
   }
 
   computeStandardDeviation(records: Record[]): number {
@@ -56,5 +58,10 @@ export class ActivityMetadataService {
       return 0;
     }
     return jStat.stdev(records.map(record => record.value));
+  }
+
+  computeWeeklyAverageDelta(records: Record[]): number {
+      const today =  this.dateService.setToStartOfDay(new Date());
+      return 5;
   }
 }

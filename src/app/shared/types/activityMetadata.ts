@@ -4,4 +4,6 @@ export interface ActivityMetadata {
     firstRecordDate: Date;
     lastRecordDate: Date;
     standardDeviation: number;
+    weeklyAverageDelta: number;
+    globalAverage: number;
 }

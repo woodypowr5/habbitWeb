@@ -16,4 +16,18 @@ export class DateService {
   computeDaysBetween(firstDate: Date, secondDate: Date): number {
     return Math.floor(Math.abs((secondDate.valueOf() - firstDate.valueOf()) / 86400000));
   }
+
+  setToEndOfDay(date: Date): Date { // need tests
+    return new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(), 23, 59, 59);
+  }
+
+  setToStartOfDay(date: Date): Date { // need tests
+    return new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(), 0, 0, 0);
+  }
 }
