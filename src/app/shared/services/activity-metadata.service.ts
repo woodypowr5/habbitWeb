@@ -43,7 +43,10 @@ export class ActivityMetadataService {
       records[records.length - 1].date.getMonth(),
       records[records.length - 1].date.getDate()
     );
-    return this.dateService.computeDaysBetween(this.dateService.setToEndOfDay(firstDay), this.dateService.setToStartOfDay(lastDay)) + 1;
+    return this.dateService.computeDaysBetween(
+      this.dateService.setToEndOfDay(firstDay), 
+      this.dateService.setToStartOfDay(lastDay)
+    ) + 1;
   }
 
   computeGlobalAverage(records: Record[]): number {
@@ -53,6 +56,11 @@ export class ActivityMetadataService {
     return jStat.mean(records.map(record => record.value));
   }
 
+  computeWeeklyAverageDelta(records: Record[]): number { // need tests
+    const today =  this.dateService.setToStartOfDay(new Date());
+    return 5;
+}
+
   computeStandardDeviation(records: Record[]): number {
     if (records.length <= 1) {
       return 0;
@@ -60,13 +68,17 @@ export class ActivityMetadataService {
     return jStat.stdev(records.map(record => record.value));
   }
 
-  computeWeeklyAverageDelta(records: Record[]): number { // need tests
-      const today =  this.dateService.setToStartOfDay(new Date());
-      return 5;
-  }
-
+  
   computeCurrentRecordStreak(records: Record[]): number { // need tests
-   return 5;
+    let streak = 0;
+
+    for (let index = 0; index < records.length; index++) {
+      const currentRecord: Record = records[index];
+
+      
+    }  
+
+    return streak;
   }
 
   computeLongestRecordStreak(records: Record[]): number {

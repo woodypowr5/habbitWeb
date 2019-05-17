@@ -188,7 +188,7 @@ describe('ActivityMetadataService', () => {
   });
 
   describe('ComputeLongestRecordStreak()', () => {
-    it('Should return 0 when there are 0 record', () => {
+    it('Should return 0 when there are 0 records', () => {
       const service: ActivityMetadataService = TestBed.get(ActivityMetadataService);
       const argRecords: Record[] = [];
       const test = service.computeLongestRecordStreak(argRecords);
@@ -304,4 +304,27 @@ describe('ActivityMetadataService', () => {
       expect(test).toBe(expectedValue);
     });
   });
+
+  describe('ComputeCurrentRecordStreak()', () => {
+    it('Should return 0 when there are 0 records', () => {
+    
+        const service: ActivityMetadataService = TestBed.get(ActivityMetadataService);
+        const argRecords: Record[] = [];
+        const test = service.computeCurrentRecordStreak(argRecords);
+        const expectedValue = 0;
+        expect(test).toBe(expectedValue);
+    });
+    // it('Should return 1 when only one record exits', () => {
+    //   const service: ActivityMetadataService = TestBed.get(ActivityMetadataService);
+    //   const argRecords: Record[] = [
+    //     {
+    //       date: new Date(2018, 11, 27, 10, 1, 9, 0),
+    //       value: 5
+    //     }
+    //   ];
+    //   const test = service.computeLongestRecordStreak(argRecords);
+    //   const expectedValue = 1;
+    //   expect(test).toBe(expectedValue);
+    // });
+  });    
 });
